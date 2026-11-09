@@ -1,6 +1,6 @@
 # open-assistants-lab/homebrew-telemetry
 
-Homebrew tap for local **telemetry and diagnostics** tooling.
+Agent diagnosis for coding runs, installed with Homebrew.
 
 ```bash
 brew install open-assistants-lab/telemetry/odograph
@@ -8,9 +8,16 @@ brew install open-assistants-lab/telemetry/odograph
 
 ## odograph
 
-Local operational diagnostics for coding agents: a bounded local store of what a run did — phases,
-timings, outcomes, failure reasons, context numbers — a web UI, a CLI and guarded read-only SQL.
-No account, no egress, no telemetry of its own.
+A coding agent runs, stalls or fails. odograph records **what it actually did** — phases, timings,
+outcomes, failure reasons, context accounting — so "why did that run fail?" has an answer after the
+fact instead of a scrollback.
+
+Not telemetry for your services: it answers a fixed list of agent questions (why it failed, where the
+time went, how close to the context budget, which tool call ended uncertain, what was lost), and names
+the two it cannot answer yet. A web UI, a CLI, and guarded read-only SQL over the same API.
+
+It listens on OTLP because that is what the agent already speaks — the transport is the input, not
+the point.
 
 It stores operational facts only: never prompts, model output, tool arguments, reasoning or
 receipts. Etti finds it automatically through an advertisement file, so no configuration is needed,
