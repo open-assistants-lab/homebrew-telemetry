@@ -9,9 +9,9 @@
 class Odograph < Formula
   desc "Local operational diagnostics for coding agents"
   homepage "https://github.com/open-assistants-lab/homebrew-telemetry"
-  url "https://github.com/open-assistants-lab/homebrew-telemetry/releases/download/v0.1.0/odograph-0.1.0-f78fe733aca5-macos-arm64.tar.gz"
-  version "0.1.0"
-  sha256 "a817f9bcd69e51df34d77d51dc9fbeca92e3d055dd92ab54a6bf8704c2a2facd"
+  url "https://github.com/open-assistants-lab/homebrew-telemetry/releases/download/v0.1.1/odograph-0.1.1-62c97544b96d-macos-arm64.tar.gz"
+  version "0.1.1"
+  sha256 "fef06cb43b3f79b21093d909f0d64e2f9c84d1e21fe85b11c29d637253e2d86c"
   license :cannot_represent
 
   # DuckDB is statically linked, so the archive is arch-specific: there is no universal binary.
