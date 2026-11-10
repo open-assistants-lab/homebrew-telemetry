@@ -9,7 +9,7 @@
 class Odograph < Formula
   desc "Local operational diagnostics for coding agents"
   homepage "https://github.com/open-assistants-lab/homebrew-telemetry"
-  version "0.1.2"
+  version "0.1.3"
   license :cannot_represent
 
   # DuckDB is statically linked, so every archive is target-specific: no universal binary. The Linux
@@ -18,15 +18,15 @@ class Odograph < Formula
     depends_on arch: :arm64
     depends_on macos: :sonoma
     on_arm do
-      url "https://github.com/open-assistants-lab/homebrew-telemetry/releases/download/v0.1.2/odograph-0.1.2-a708b2944948-macos-arm64.tar.gz"
-      sha256 "161ae384356efadcf5e55fb280cbc9f38e7ff0fe60ff417994d967027fbdf3f7"
+      url "https://github.com/open-assistants-lab/homebrew-telemetry/releases/download/v0.1.3/odograph-0.1.3-01a3503065b8-macos-arm64.tar.gz"
+      sha256 "a76fc9b880458c6e43df1193494e942b44f455b8c167f04414ec9a0cc1459700"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/open-assistants-lab/homebrew-telemetry/releases/download/v0.1.2/odograph-0.1.2-a708b2944948-linux-amd64.tar.gz"
-      sha256 "2923199434ab60ade439f21af6adc80f8625dc2bd357ce4e6bfd4fdad7d6b12c"
+      url "https://github.com/open-assistants-lab/homebrew-telemetry/releases/download/v0.1.3/odograph-0.1.3-01a3503065b8-linux-amd64.tar.gz"
+      sha256 "cc26224908ede4b5699020c4edd3d96a796ccb4650eece7bcfa31031ffd940b0"
     end
   end
 
