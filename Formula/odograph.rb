@@ -9,24 +9,24 @@
 class Odograph < Formula
   desc "Local operational diagnostics for coding agents"
   homepage "https://github.com/open-assistants-lab/homebrew-telemetry"
-  version "0.1.3"
+  version "0.1.6"
   license :cannot_represent
 
-  # DuckDB is statically linked, so every archive is target-specific: no universal binary. The Linux
+  # SQLite is statically linked, so every archive is target-specific: no universal binary. The Linux
   # build is static musl, so it carries no glibc floor and runs on any modern distribution.
   on_macos do
     depends_on arch: :arm64
     depends_on macos: :sonoma
     on_arm do
-      url "https://github.com/open-assistants-lab/homebrew-telemetry/releases/download/v0.1.3/odograph-0.1.3-01a3503065b8-macos-arm64.tar.gz"
-      sha256 "a76fc9b880458c6e43df1193494e942b44f455b8c167f04414ec9a0cc1459700"
+      url "https://github.com/open-assistants-lab/homebrew-telemetry/releases/download/v0.1.6/odograph-0.1.6-435763a77a65-macos-arm64.tar.gz"
+      sha256 "516300f6aa85d6384e82fac819992b21a1ad64f92b4796d1e9a5c6435d418c9d"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/open-assistants-lab/homebrew-telemetry/releases/download/v0.1.3/odograph-0.1.3-01a3503065b8-linux-amd64.tar.gz"
-      sha256 "cc26224908ede4b5699020c4edd3d96a796ccb4650eece7bcfa31031ffd940b0"
+      url "https://github.com/open-assistants-lab/homebrew-telemetry/releases/download/v0.1.6/odograph-0.1.6-435763a77a65-linux-amd64.tar.gz"
+      sha256 "c49ff50e15f4bcab9ea45c92c7671ad4098b865cf2de3dcdb3029ba142b8b628"
     end
   end
 
@@ -53,9 +53,12 @@ class Odograph < Formula
       Storage: ~/.local/share/odograph (28-day retention, plus a disk bound).
       `brew uninstall` does not delete it; remove that directory to delete everything.
 
-      Artifact metadata read-through needs Etti's state directory:
+      Artifact metadata read-through needs Etti 0.1.12 or later and both flags — the bounded
+      inspector, and the state directory it is allowed to read through that inspector:
 
-          odograph serve --etti-state ~/.local/share/etti/instances/<instance>
+          odograph serve --etti-inspector /abs/path/to/etti --etti-state ~/.local/share/etti/instances/<instance>
+
+      Alone, --etti-state refuses at startup and names the missing flag.
 
       No account, no egress, no telemetry of its own. Not a sandbox: it runs as you.
     EOS
